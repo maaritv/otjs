@@ -8,7 +8,6 @@ const numberOfPayments = years * months * 4
 
 console.log(`Viikkorahan suuruus\t${weeklyMoneyEur} euroa / viikko`)
 console.log(`Viikkorahan kesto\t${numberOfPayments} viikkoa`)
-
 const totalMoney = numberOfPayments * weeklyMoneyEur
 console.log(`Viikkoraha on liukulukuina ${totalMoney} euroa`)
 
@@ -31,5 +30,5 @@ for (let i = 0; i < (numberOfPayments - 1); i++) {
    console.log((i + 2) + ". maksu " + numberOfPayments + ":sta kertymä: " + money.setLocale("fi-FI").toFormat())
    money = money.add(addition)
 }
-console.log("Yhteensä lertymänä (dinero): " + money.setLocale("fi-FI").toFormat())
+console.log("Yhteensä kertymänä (dinero): " + money.setLocale("fi-FI").toFormat())
 
