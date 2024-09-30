@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "dinero.js": "^1.9.1",
+    "mathjs": "^13.1.1"
+  }
+}
