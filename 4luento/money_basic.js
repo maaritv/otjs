@@ -20,7 +20,6 @@ https://www.honeybadger.io/blog/currency-money-calculations-in-javascript/
 const weeklyMoneyCent = weeklyMoneyEur * 100
 let money = Dinero({ amount: weeklyMoneyCent, currency: 'EUR' })
 const result = money.multiply(numberOfPayments) // returns new Dinero object
-
 console.log("Kertolaskettuna (dinero): " + result.setLocale("fi-FI").toFormat())
 
 
