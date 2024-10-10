@@ -5,7 +5,7 @@ class Book {
     this.publicationYear = publicationYear;
   }
 
-  //Tämä on book-luokan jäsenmuuttuja. Se ei saa parametriksi kirjaa,
+  //Tämä on book-luokan jäsenfunktio. Se ei saa parametriksi kirjaa,
   //koska se lukee tarvitsemansa tiedot tämän luokan sisäisistä
   //jäsenmuuttujista. this....
   getInfo() {
