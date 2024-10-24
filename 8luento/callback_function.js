@@ -17,7 +17,7 @@ function showError(errorMsg) {
 */
 
 function getBooks(succeeded, failed) {
-  const url = `https://postman-library-api.glitch.me/books`;
+  const url = `https://<lisää osoite luentomateriaalista>`;
   
   fetch(url, {
     method: 'GET'
