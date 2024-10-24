@@ -1,0 +1,197 @@
+[
+    {
+        "id": 1,
+        "name": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "publisher": "Scribner",
+        "isbn": "9780743273565",
+        "publicationYear": 1925
+    },
+    {
+        "id": 2,
+        "name": "1984",
+        "author": "George Orwell",
+        "publisher": "Secker & Warburg",
+        "isbn": "9780451524935",
+        "publicationYear": 1949
+    },
+    {
+        "id": 3,
+        "name": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "publisher": "J.B. Lippincott & Co.",
+        "isbn": "9780061120084",
+        "publicationYear": 1960
+    },
+    {
+        "id": 4,
+        "name": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "publisher": "Little, Brown and Company",
+        "isbn": "9780316769488",
+        "publicationYear": 1951
+    },
+    {
+        "id": 5,
+        "name": "Brave New World",
+        "author": "Aldous Huxley",
+        "publisher": "Secker & Warburg",
+        "isbn": "9780060850524"
+    },
+    {
+        "id": 6,
+        "name": "Where the Wild Things Are",
+        "author": "Maurice Sendak",
+        "publisher": "Secker & Warburg",
+        "isbn": "9780060850524",
+        "publicationYear": "-"
+    },
+    {
+        "id": 7,
+        "name": "The Very Hungry Caterpillar",
+        "author": "Eric Carle",
+        "publisher": "Secker & Warburg",
+        "isbn": "9780451524935",
+        "publicationYear": 1949
+    },
+    {
+        "id": 1,
+        "name": "Goodnight Moon",
+        "author": "Margaret Wise Brown",
+        "publisher": "Little, Brown and Company",
+        "publicationYear": 1951
+    },
+    {
+        "id": 2,
+        "name": "Green Eggs and Ham",
+        "author": "Dr. Seuss",
+        "publisher": "J.B. Lippincott & Co.",
+        "publicationYear": "-"
+    },
+    {
+        "id": 21,
+        "name": "The Odyssey of Code",
+        "author": "Emily Bronson",
+        "publisher": "Tech Press",
+        "isbn": "9780451524935",
+        "publicationYear": 2018
+    },
+    {
+        "id": 22,
+        "name": "The Infinite Loop",
+        "author": "James Kepler",
+        "publisher": "Code Masters",
+        "isbn": "9780134757599",
+        "publicationYear": 2019
+    },
+    {
+        "id": 23,
+        "name": "The Debugger\"s Quest",
+        "author": "Rosa Mitchell",
+        "publisher": "Debug House",
+        "isbn": "9780262033848",
+        "publicationYear": 2021
+    },
+    {
+        "id": 24,
+        "name": "Variable of Life",
+        "author": "Kevin Nolan",
+        "publisher": "MathWorks",
+        "isbn": "9781492046911"
+    },
+    {
+        "id": 25,
+        "name": "The Algorithm\"s Path",
+        "author": "Hannah Wright",
+        "publisher": "Algo Press",
+        "isbn": "9780132350884",
+        "publicationYear": 2020
+    },
+    {
+        "id": 26,
+        "name": "The Matrix Paradox",
+        "author": "Greg Simmons",
+        "publisher": "Quantum Publications",
+        "isbn": "9780471117094",
+        "publicationYear": 2022
+    },
+    {
+        "id": 27,
+        "name": "The Silent Compiler",
+        "author": "Laura Gibson",
+        "publisher": "Binary Press",
+        "isbn": "9780131103627",
+        "publicationYear": 2017
+    },
+    {
+        "id": 28,
+        "name": "Loops and Recursion",
+        "author": "Samuel Klein",
+        "publisher": "Syntax Books",
+        "isbn": "9780201896831",
+        "publicationYear": 2015
+    },
+    {
+        "id": 29,
+        "name": "Async Journey",
+        "author": "Olivia Douglas",
+        "publisher": "Callback Press",
+        "isbn": "9780137081899",
+        "publicationYear": 2016
+    },
+    {
+        "id": 30,
+        "name": "Object-Oriented Mysteries",
+        "author": "Mark Perry",
+        "publisher": "Class Acts",
+        "isbn": "9780132350884",
+        "publicationYear": 2014
+    },
+    {
+        "id": 31,
+        "name": "Array of Problems",
+        "author": "Joan Warner",
+        "publisher": "DataWorks",
+        "isbn": "9780131103627"
+    },
+    {
+        "id": 32,
+        "name": "Stack Overflow Tales",
+        "author": "Brian Lynch",
+        "publisher": "TechHub",
+        "isbn": "9780262033848",
+        "publicationYear": 2023
+    },
+    {
+        "id": 33,
+        "name": "Parallel Universe",
+        "author": "Diana Scott",
+        "publisher": "Concurrent Press",
+        "isbn": "9781491950356",
+        "publicationYear": 2020
+    },
+    {
+        "id": 34,
+        "name": "HashMap Diaries",
+        "author": "Tina Bradley",
+        "publisher": "Storage House",
+        "isbn": "9780134685991",
+        "publicationYear": 2021
+    },
+    {
+        "id": 35,
+        "name": "Pointers of Time",
+        "author": "Patrick Richards",
+        "publisher": "Memory Lane",
+        "isbn": "9780134685991",
+        "publicationYear": 2022
+    },
+    {
+        "id": 36,
+        "name": "Data Structures: A Love Story",
+        "author": "Alice Williams",
+        "publisher": "Graph Publishers",
+        "isbn": "9780262033848",
+        "publicationYear": 2019
+    }
+]
