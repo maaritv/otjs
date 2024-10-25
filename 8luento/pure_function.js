@@ -12,7 +12,9 @@ function addBookToListPure(book, booklist){
     //luodaan ensin kopio argumenttina saadusta kirjalistasta
     //kutsujan kirjalista ei muutu.
     const newbooklist = JSON.parse(JSON.stringify(booklist))
-    newbooklist.push(book)
+    const newbook = JSON.parse(JSON.stringify(book))
+    newbook.id=700
+    newbooklist.push(newbook)
     //console.log(newbooklist)
     //console.log(booklist)
     return newbooklist
@@ -45,3 +47,4 @@ const newBooks = addBookToListPure(carBook, books)
 addBookToList(plantBook, newBooks)
 //console.log(books)
 console.log(newBooks)
+//console.log(carBook)
