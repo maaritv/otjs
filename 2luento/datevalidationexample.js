@@ -1,64 +1,56 @@
 const readline = require('readline-sync')
 
-function validateDateString(dateString) {
-    // Regular expression to match the YYYY-MM-DD format
-    const regex = /^\d{4}-\d{2}-\d{2}$/;
 
-    // Test the date string against the regex
-    if (!regex.test(dateString)) {
-        throw new Error(`Invalid date format: ${dateString} it should be YYYY-MM-DD`);
+testingDateValidation();
+
+/* Voit luoda päivämääräobjektin onnistuneesti, jos päivämäärämerkkijono 
+   on oikeassa muodossa. Se ei kuitenkaan vielä tarkoita, että päivämäärä 
+   on järkevä sovelluksen näkökulmasta. Siksi se tarvitsee myös esiehtotarkastuksen,
+   jossa varmistetaan, että se on sovelluksen näkökulmasta järkevä. 
+*/
+
+function validateDateString(myDateStr){
+    if (myDateStr && !typeof(myDateStr==="str")){
+        throw (new TypeError("Date must be given as a string!"));
     }
-
-    // Parse the date components to ensure it's a valid date
-    const [year, month, day] = dateString.split('-').map(Number);
-
-    // Create a Date object from the components
-    const date = new Date(year, month - 1, day);
-
-    // Check if the date is valid (month - 1 because months are 0-indexed in JavaScript)
-    if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
-        throw new Error(`Invalid date: ${dateString} in right format.`);
+    const year = new Date(myDateStr).getFullYear();
+    //Huomaa! year===Nan ei toimi... Validissa pvm:ssä vuosi ei ole NaN!!!
+    if (isNaN(year)){
+        throw (new Error(`Date string ${myDateStr} is in invalid format!`));
     }
     return true;
 }
 
+
+
 function testingDateValidation() {
 
-    // Example usage:
-    const dateString1 = "2024-08-15";
-    const dateString2 = "2024-13-01";
-    const dateString3 = "2024-02-29"; // Leap year
-    const dateString4 = "not-a-date";
+    //dates
 
-    try {
-        console.log(validateDateString(dateString1));
-    }
-    catch (e) {
-        console.log("Not valid! " + e.message)
-    }
+    const dateArray = ["9000-13-10","0-02-60", "0-2-1", "0000-05-01","2024-08-15", "2024-08-15", "-3000-11-10", "2024-02-29", "5098-12-13", "not-a-date"]
 
-    try {
-        console.log(validateDateString(dateString2));
-    }
-    catch (e) {
-        console.log("Not valid! " + e.message)
-    }
-
-    try {
-        console.log(validateDateString(dateString3));
-    }
-    catch (e) {
-        console.log("Not valid! " + e.message)
+    for (let i=0; i<dateArray.length; i++){
+        const dateString=dateArray[i];
+        try {
+            //Validointifunktio antaa poikkeuksen, jos ei validimerkkijono. 
+            //Laitetaan se try-lohkon sisään.
+            const validationResult = validateDateString(dateString);
+            console.log(`Merkkijono ${dateString} on validi päivämäärä ${validationResult}`);
+            try {
+                checkAge(dateString)
+            }
+            catch(e){
+                console.log(`Henkilö on alle 18 vuotias! ${dateString}`)
+            }
+            console.log("---------------\n")
+        }
+        catch (e){
+            //Käsitellään poikkeus, tässä riittää, että kerrotaan käyttäjälle asiasta.
+            console.log(`validointivirhe ${e.message}`)
+        }
     }
 
-    try {
-        console.log(validateDateString(dateString4));
-    }
-    catch (e) {
-        console.log("Not valid! " + e.message)
-    }
 }
-
 //Esiehtotarkistus tilanteeseen, jossa päivämäärän pitää olla
 //enemmän kuin 18 vuotta sitten.
 function checkAge(birthDate) {
@@ -68,10 +60,10 @@ function checkAge(birthDate) {
 
     let birthDateObj = new Date(birthDate);
     if (birthDateObj > eighteenDateObj) {
-        console.log("DEBUG: " + birthDateObj + "/" + eighteenDateObj)
-        throw new Error(`Age is under 18!`);
+        //console.log("DEBUG: " + birthDateObj + "/" + eighteenDateObj)
+        throw new Error(`Ikä alle 18!`);
     }
-    console.log(`${birthDate}  is ok!`)
+    console.log(`${birthDate}  on yli 18!`)
 }
 
 function validateName(name) {
@@ -83,7 +75,7 @@ function validateName(name) {
  * Syötteet validoidaan heti, kun ne on luettu, ennen kuin niitä
  * käytetään mihinkään.
  */
-
+/*
 try {
     const firstName = readline.question("Syötä etunimi? ");
     validateName(firstName)
@@ -102,7 +94,7 @@ try {
 } catch (error) {
     console.error(error.message);
 }
-
+*/
 
 function saveCustomerToDatabase(customer) {
     //ei vielä toteutusta
