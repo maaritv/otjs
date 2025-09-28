@@ -27,7 +27,7 @@ function readFromFile(filePath) {
 function calculateRectangleArea(width, height) {
     //Esiehtotarkistus: negatiivinen pinta-ala ei ole oikea vastaus.
     if ((width * height) < 0) {
-        throw new Error("Area can not be negative!")
+        throw new ValueError("Area can not be negative!")
     }
     return (width * height);
 }

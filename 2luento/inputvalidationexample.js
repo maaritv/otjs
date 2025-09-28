@@ -8,7 +8,7 @@ function calculateRectangleArea(width, height){
     //se tarkistaa, että parametreja voidaan käyttää että 
     //parametrit ovat käyttötarkoitukseen sopivat.
    if ((width*height)<0){
-    throw new Error("Pinta-ala ei voi olla negatiivinen!")
+    throw new ValueError("Pinta-ala ei voi olla negatiivinen!")
    }
    return (width*height);
 }
