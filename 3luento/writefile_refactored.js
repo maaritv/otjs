@@ -35,7 +35,9 @@ function getCurrentWorkingDirectory() {
 function main() {
     try {
         //Käyttöliittymätaso
-        const filePath = readline.question(`Enter the file path. You are now at: ${getCurrentWorkingDirectory()} `);
+        const workingDir=getCurrentWorkingDirectory();
+        console.log(`You are now at: ${workingDir}`)
+        const filePath = readline.question(`Enter the file path: `);
         validateFilePath(filePath)
 
         let data = readline.question('Enter the data to write to the file (max 10 characters): ');
