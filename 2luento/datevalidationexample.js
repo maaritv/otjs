@@ -1,7 +1,15 @@
 const readline = require('readline-sync')
 
 
-testingDateValidation();
+//testingDateValidation();
+try {
+    validateDateString("999-15-17")
+    console.log("Oli ookoo")
+}
+catch (e){
+    console.log("Ei ollut ookooo")
+}
+console.log("olisin laskenut oikein, jos olisit antanut validin päivämäärän")
 
 /* Voit luoda päivämääräobjektin onnistuneesti, jos päivämäärämerkkijono 
    on oikeassa muodossa. Se ei kuitenkaan vielä tarkoita, että päivämäärä 

@@ -1,4 +1,10 @@
-const validateNumber = require('./myvalidators.js')
+/** Ohjelman suoritus alkaa. */
+//Tällä tavoin voit ottaa käyttöön erilaisia 
+//sovelluskirjastoja. Tällä saamme luettua käyttäjän
+//syötteet näppäimistöltä.
+const readline = require('readline-sync')
+const { validateNumber, convertStringToNumber } = require('./myvalidators.js')
+
 
 /** 
   Funktiolla on sivuvaikutus, koska se kasvattaa sellaisen 
@@ -8,9 +14,23 @@ const validateNumber = require('./myvalidators.js')
   muuttamaan siten, että sivuvaikutuksia ei olisi.
 */
 
-function changeAccountBalance(change) {
-  accountBalance = accountBalance + parseFloat(change)
+function changeAccountBalance(change, monthlySpendLimit) {
+    // jos change < 0, kysymyksessä rahan nosto, jos change > 0,
+    // talletetaan lisää rahaa tilille.
+    let changeToDo = convertStringToNumber(change)
+    //Esiehtotarkistus!
+    if ((accountBalance + changeToDo) < 0) {
+        throw new Error("Tilin saldo ei riitä!")
+    }
+
+    if (changeToDo < 0 && Math.abs(changeToDo) > monthlySpendLimit) {
+        throw new Error("Et voi nostaa enempää kuin nostoraja antaa!")
+    }
+    //Ei return-lausetta!-> sivuvaikutus sijoitettaessa
+    //ylempänä määriteltyyn accountbalance-funktion.
+    accountBalance = accountBalance + changeToDo
 }
+
 
 /** 
   Tämä funktio on ns. aito funktio ilman sivuvaikutuksia. 
@@ -20,19 +40,19 @@ function changeAccountBalance(change) {
   funktiossa. 
 */
 
-function getNewMonthlySpendLimit(monthlySpendLimit, change) {
-  return monthlySpendLimit + parseFloat(change)
+function getNewMonthlySpendLimit(oldLimit, change) {
+    let changeToDo = convertStringToNumber(change)
+    const oldLimitAsNumber = convertStringToNumber(oldLimit)
+
+    if ((oldLimitAsNumber + changeToDo) < 0) {
+        throw new Error('Käyttöraja ei voi olla negatiivinen!')
+    }
+    return oldLimitAsNumber + changeToDo
 }
 
 
-/** Ohjelman suoritus alkaa. */
-//Tällä tavoin voit ottaa käyttöön erilaisia 
-//sovelluskirjastoja. Tällä saamme luettua käyttäjän
-//syötteet näppäimistöltä.
-const readline = require('readline-sync')
-
 /** Sovelluksen tila koostuu muuttujista accountBalance ja 
-     montlySpendLimit (rivi 46)
+     monthlySpendLimit (rivi 65)
      * accountBalance muuttuja on määritelty samalla tasolla, kuin
      * funktio, joka sitä käyttää (changeAccountBalance)
      * siksi funktio näkee sen.
@@ -44,12 +64,14 @@ try {
   //joka sitä käyttää. Siksi funktio EI näe tätä muuttujaa, vaan 
   //se on annettava parametrina 
   let monthlySpendLimit = 150
-
-  let changeBalanceBy = readline.question("Paljonko haluat muuttaa saldoa? ");
+  console.log(`Saldosi on ${accountBalance}`)
+  console.log(`Käyttörajasi on ${monthlySpendLimit}`)
+  
+  let changeBalanceBy = readline.question(`Paljonko haluat muuttaa saldoa?`);
   validateNumber(changeBalanceBy)
   let changeMonthlySpendLimitBy = readline.question("Paljonko haluat muuttaa kuukausittaista käyttörajaa? ");
   validateNumber(changeMonthlySpendLimitBy)
-  changeAccountBalance(changeBalanceBy)
+  changeAccountBalance(changeBalanceBy, monthlySpendLimit)
   console.log(`Tilin saldo on nyt ${accountBalance}`)
 
   monthlySpendLimit = getNewMonthlySpendLimit(monthlySpendLimit, changeMonthlySpendLimitBy)
@@ -60,7 +82,7 @@ catch (error) {
     console.log(`Virhe syötteessä: ${error}`)
   }
   else {
-    console.log(`Some unidentified error ${error.constructor.name}`)
+    console.log(`Exception: ${error}`)
   }
 }
 
