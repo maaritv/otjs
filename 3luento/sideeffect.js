@@ -8,7 +8,7 @@ const { validateNumber, convertStringToNumber } = require('./myvalidators.js')
 
 /** 
   Funktiolla on sivuvaikutus, koska se kasvattaa sellaisen 
-  muuttujan (accountBalance) arvoa, joka ei ole määritelty tämän funktion sisällä.
+  muuttujan (accountBalance) arvoa, joka ei ole määritelty tämän funktion SISÄLLÄ.
   Tämän kaltaisilla funktioilla on usein arvaamattomia vaikutuksia, 
   ja siksi tämä toteutus luultavasti pyydettäisi koodinkatselmoinnissa 
   muuttamaan siten, että sivuvaikutuksia ei olisi.
@@ -67,10 +67,13 @@ try {
   console.log(`Saldosi on ${accountBalance}`)
   console.log(`Käyttörajasi on ${monthlySpendLimit}`)
   
+  //Käyttöliittymä ja syöevalidointi
   let changeBalanceBy = readline.question(`Paljonko haluat muuttaa saldoa?`);
   validateNumber(changeBalanceBy)
   let changeMonthlySpendLimitBy = readline.question("Paljonko haluat muuttaa kuukausittaista käyttörajaa? ");
   validateNumber(changeMonthlySpendLimitBy)
+
+  //kusutaan ns. liiketoimintalogiikkaa, palvelufunktiota
   changeAccountBalance(changeBalanceBy, monthlySpendLimit)
   console.log(`Tilin saldo on nyt ${accountBalance}`)
 
