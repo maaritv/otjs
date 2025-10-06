@@ -4,7 +4,7 @@ function printGlobals(){
   //määritelty let-määreellä eikä tämä funktio 
   //ole kys. koodilohkon tasolla tai alla vaan rinnalla.
   //console.log(names)
-  console.log("Printing globals from other code module! "+moreNames)
+  console.log("Printing globals, that are defined in other code module! "+moreNames)
 }
 
 module.exports = printGlobals

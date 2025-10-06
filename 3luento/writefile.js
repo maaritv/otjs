@@ -2,7 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * Kirjoittaa dataa tiedostoon annettuun hakemistoon.
+ * Funktion tehtävä (function) on kirjoittaa 
+ * annettu data annetun nimiseksi tiedostoksi 
+ * annettuun hakemistoon.
  * HUOM: Hakemiston täytyy olla olemassa!
  * 
  * @param {string} dir - Hakemiston polku
@@ -23,7 +25,11 @@ function writeDataToFile(dir, filename, data) {
     }
 }
 
-// ajetaan sovellus.
+//ajetaan sovellus. node writefile.js
+//varmista, että hakemistossa (avaa terminaali) 
+//on oikean niminen hakemisto. Jos ei ole 
+//tee se komennolla mkdir data tai käytä
+//esim. windowsin File Manageria.
 
 const filePath='./fileet';
 const fileName='myfile.txt';

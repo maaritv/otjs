@@ -42,6 +42,10 @@ function getCurrentWorkingDirectory() {
     return path;
 }
 
+/**
+ * ajetaan node writefile_refactored.js
+ */
+
 function main() {
     try {
         //Käyttöliittymätaso
