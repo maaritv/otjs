@@ -1,5 +1,9 @@
 const Dinero = require('dinero.js')
 
+/**
+ * TIEDOKSI! EI TARVITSE OPETELLA TEKEMÄÄN.
+ * 
+ */
 
 const years = 2
 const months = 12
