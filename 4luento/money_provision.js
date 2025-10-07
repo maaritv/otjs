@@ -1,5 +1,11 @@
 const Dinero = require('dinero.js')
 
+
+/**
+ * TIEDOKSI! EI TARVITSE OPETELLA TEKEMÄÄN.
+ * 
+ */
+
 /**
  * Lasketaan myyjän kuukausipalkka, joka koostuu peruspalkasta
  * ja kuukauden myyntiin suhteutetusta provisiosta (provisio%*myynti)

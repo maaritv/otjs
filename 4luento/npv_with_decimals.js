@@ -1,5 +1,11 @@
 const Dinero = require('dinero.js')
 
+/**
+ * TIEDOKSI! EI TARVITSE OPETELLA TEKEMÄÄN.
+ * 
+ */
+
+
 //Vertaa:
 //https://www.calculatorsoup.com/calculators/financial/net-present-value-calculator.php
 //laskettu liukuluvuilla
