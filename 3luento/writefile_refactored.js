@@ -2,15 +2,13 @@ const fs = require('node:fs');  //Tiedostoon kirjoitus synkronisesti. käytetä�
 const path = require('path');  //Hakemistojen yhdistäminen
 const readline = require('readline-sync'); //syötteen lukeminen
 
+
 function validateFilePath(filePath) {
+    if (filePath==='/') {
+        throw new Error('Writing to the root is not allowed in this app!');
+    }
     if (filePath.length===0) {
         throw new Error('Directory name must not be empty!');
-    }
-}
-
-function checkFilePath(filePath) {
-    if (filePath.startsWith('/')) {
-        throw new Error('Writing to the root is not allowed in this app!');
     }
 }
 
@@ -25,7 +23,6 @@ function validateData(data) {
 
 function writeDataToFile(dir, filename, data) {
     try {
-        checkFilePath(dir)
         // Yhdistetään tiedostopolku
         const filePath = path.join(dir, filename);
 
@@ -53,7 +50,6 @@ function main() {
         console.log(`You are now at: ${workingDir}`)
         const filePath = readline.question(`Enter the file path: `);
         validateFilePath(filePath)
-
         let data = readline.question('Enter the data to write to the file (max 10 characters): ');
         validateData(data)
         //Tässä sovelluksessa nimeä ei kysytä käyttäjältä, voitaisi kyllä. ei tarvitse validoida.

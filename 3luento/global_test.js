@@ -7,4 +7,8 @@ function printGlobals(){
   console.log("Printing globals, that are defined in other code module! "+moreNames)
 }
 
-module.exports = printGlobals
+function sayHi(){
+  console.log("hei")
+}
+
+module.exports = { printGlobals, sayHi }

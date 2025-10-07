@@ -15,7 +15,7 @@ for (let i = 0; i < names.length; i++) {
 }
 //Name-muuttujan arvo on sama kuin viimeksi TÄSSÄ lohkossa sijoitettu arvo.
 //for-silmukka on omassa lohkossaan.
-console.log(`Nimet loppuivat. Name muuttujan arvo nyt ${name} ja i oli viimeksi ${i}`)
+console.log(`Nimet loppuivat. Name muuttujan arvo nyt: ${name}`)
 
 
 

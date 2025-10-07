@@ -1,4 +1,5 @@
-const printGlobals = require("./global_test.js")
+const myexports = require("./global_test.js")
+
 
 //names on voimassa päätasolla ja sen alla olevissa 
 //lohkoissa, jos sitä ei varjosteta alla (mutta ei yllä) olevassa 
@@ -10,7 +11,8 @@ let names = ['Matti', 'Minna', 'Iines', 'Joni', 'Mikko', 'Leena']
 moreNames = ["Antti", "Pekka", "Juha"]
 //printGlobals pystyy tulostamaan moreNames-muuttujan arvon
 //mutta ei names-muuttujan arvoa.
-printGlobals()
+myexports.printGlobals()
+myexports.sayHi()
 
 
 /**
