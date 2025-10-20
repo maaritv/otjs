@@ -66,6 +66,20 @@ book3.munFunktio = myFunction
 console.log(book1.omaFunktio())
 console.log(book3.munFunktio())
 
+const setName =function(name){
+  this.title=name;
+}
+
+book1.setName=setName;
+console.log(`Vanha nimi: ${book1.title}`)
+book1.setName("Nimi vaihdettu")
+console.log(`Uusi nimi: ${book1.title}`)
+
+
+
+
+
+
 console.log(`Book3 information ${getInformation(book3)}. Kirjan tyyppi on ${typeof book3}`)
 
 console.log(`Tässä kutsutaan book3:n funktiota \"age\" ${book3.bookAge()}`)
