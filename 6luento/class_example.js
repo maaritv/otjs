@@ -1,22 +1,21 @@
-class Book {
-  constructor(title, author, publicationYear) {
-    this.title = title;
-    this.author = author;
-    this.publicationYear = publicationYear;
-  }
+const Book = require('./model/Book.js');
 
-  //Tämä on book-luokan jäsenfunktio. Se ei saa parametriksi kirjaa,
-  //koska se lukee tarvitsemansa tiedot tämän luokan sisäisistä
-  //jäsenmuuttujista. this....
-  getInfo() {
-    return `${this.title} by ${this.author}, published in ${this.publicationYear}`;
-  }
-}
 
-//Tämä on normaali nimetty funktio, joka saa parametriksi kirjaolion.
-function getInformation(book) {
-  return `${book.title} by ${book.author}, published in ${book.publicationYear}`;
-}
+/**
+ * Tämä esimerkki on tiedoksi. JS luokkaa ei tarvitse oppia 
+ * toteuttamaan.
+ * 
+ * Opettele ymmärtämään 
+ * JS luokan toimitntaperiaate:
+ * 
+ * - dynaamisesti tyypitetyn kielen toiminta jäsenmuuttujien 
+ *   ja funktioiden suhteen. Niitä voidaan lisätä dynaamisesti 
+ *   joko yhdelle ilmentymälle tai kaikille (lisätään prototyyppiibn)
+ *   funktio. 
+ */
+
+
+
 
 // Creating instances of the Book class. two book objects.
 const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925);
@@ -33,23 +32,6 @@ book2.athor = "Charles Dickens"
 console.log(`Book1 information ${book1.getInfo()}. Kirjan tyyppi on ${typeof book1}`)
 console.log(`Book2 information ${book2.getInfo()}. Kirjan tyyppi on ${typeof book2}`)
 
-/* Tämä on JSON-objekti eikä kirja-luokan ilmentymä. 
-Kysyttäessä (typeof) molemmat ovat objekteja. */
-
-
-const book3 = {
-  title: 'Neiti etsivä kohtaa kolmion',
-  athor: 'Carylon Keene',
-  publicationYear: 1960,
-  bookAge: function () {
-    return new Date().getFullYear() - this.publicationYear
-  }
-}
-
-book3.getDescription = function () {
-  return `${this.title} on kirjailija ${this.author} paras kirja :-)`
-}
-
 
 /** Seuraava syntaksi tulee paremmin tutuksi funktionaalisen 
  * ohjelmoinnin yhteydessä, kun puhutaan anonyymeistä 
@@ -61,10 +43,27 @@ const myFunction = function () {
 }
 
 book1.omaFunktio = myFunction
-book3.munFunktio = myFunction
 
 console.log(book1.omaFunktio())
-console.log(book3.munFunktio())
+//book2:lla ei ole vastaavaa funktiota, koska sitä ei erikseen tälle 
+//ilmentymälle annettu
+
+
+//Uusi luokan jäsenmuuttuja voidaan lisätä prototyypille
+//ajonaikaisesti. Nyt se on voimassa molemmille kirjoille,
+//ne voivat molemmat sitä kutsua.
+Book.prototype.setPrice = function (newPrice) {
+  this.price=newPrice;
+};
+
+book1.setPrice(100)
+//molemmille kirjoille on ilmestynyt uusi jäsenmuuttuja,
+//jota javascriptissä voidaa lukea suoraan luokan ulkopuolelta.
+//ne ovat oletusarvoisesti julkisia.
+console.log(`Kirjan 1 hinta on ${book1.price}`)
+
+book2.setPrice(50)
+console.log(`Kirjan 2 hinta on ${book2.price}`)
 
 const setName =function(name){
   this.title=name;
@@ -75,15 +74,6 @@ console.log(`Vanha nimi: ${book1.title}`)
 book1.setName("Nimi vaihdettu")
 console.log(`Uusi nimi: ${book1.title}`)
 
-
-
-
-
-
-console.log(`Book3 information ${getInformation(book3)}. Kirjan tyyppi on ${typeof book3}`)
-
-console.log(`Tässä kutsutaan book3:n funktiota \"age\" ${book3.bookAge()}`)
-console.log(`Book3:lle on lisätty uusi metodi, ja tässä sitä kutsutaan  ${book3.getDescription()}`)
 
 //JavaScriptissä luokalle voi määritellä dynaamisesti uusia attribuutteja.
 //useissa kielissä kuten Javassa näin ei voi tehdä.
