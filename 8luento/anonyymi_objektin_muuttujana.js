@@ -1,11 +1,9 @@
-/* Anonyymit funktiot
-  Self executing function
-  Arrow function
+/*
+  Opettele ymmärtämään, mihin this-sana viittaa.
 */
-
 /** OHJELMAN SUORITUS ALKAA */
 
-/** KIRJOITA VIEREISEN NÄKYMÄN SHELL-VÄLILEHDELLE: node anonyymit.js */
+/** kirjoita terminaaliin node anonyymit.js */
 
 /** 
   Näillä funktioilla ei ole nimeä, mutta niiden 

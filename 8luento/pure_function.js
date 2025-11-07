@@ -1,3 +1,6 @@
+
+//Opettele luomaan puhdas funktio.
+
 const books = [
     { id: 1, name: "The Great Gatsby", author: "F. Scott Fitzgerald", publisher: "Scribner", isbn: "9780743273565", publicationYear: 1925 },
     { id: 2, name: "1984", author: "George Orwell", publisher: "Secker & Warburg", isbn: "9780451524935", publicationYear: 1949 },
@@ -43,7 +46,7 @@ const plantBook = {
 const newBooks = addBookToListPure(carBook, books)
 
 //calling with side effect. no return value is 
-//specified.
+//needed.
 addBookToList(plantBook, newBooks)
 //console.log(books)
 console.log(newBooks)

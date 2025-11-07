@@ -1,5 +1,9 @@
 const input = require("readline-sync")
 
+
+//Opettele käyttämään ternary operaattoria
+//if-lauseen sijaan.
+
 function evenFunction() {
     console.log("The number is even.");
 }

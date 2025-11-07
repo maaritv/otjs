@@ -1,5 +1,12 @@
 /*  
-  Korkeamman asteen funktiot
+  Korkeamman asteen funktio.
+  Opwettele:
+
+  - Luomaan yksinkertainen matemaattinen 
+    puhdas funktio.
+
+  - Välittämään se argumenttina toiselle funktiolle,
+    joka suorittaa argumenttina saamansa funktion.
 */
 
 const { validateNumber } = require('./my_validators');

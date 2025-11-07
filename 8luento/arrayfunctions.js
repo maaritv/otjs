@@ -1,3 +1,13 @@
+/**
+ * Opettele käyttämään seuraavia array-funktioita.
+ * 
+ * 1. filter
+ * 2. map
+ * 3. find 
+ * 
+ */
+
+
 const books = [
     { id: 1, name: "The Great Gatsby", author: "F. Scott Fitzgerald", publisher: "Scribner", isbn: "9780743273565", publicationYear: 1925 },
     { id: 2, name: "1984", author: "George Orwell", publisher: "Secker & Warburg", isbn: "9780451524935", publicationYear: 1949 },
