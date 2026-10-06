@@ -1,16 +1,29 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');  //Tiedostoon kirjoitus synkronisesti. käytetään pienille tiedostoille.
+const path = require('path');  //Hakemistojen yhdistäminen
+const readline = require('readline-sync'); //syötteen lukeminen
 
-/**
- * Funktion tehtävä (function) on kirjoittaa 
- * annettu data annetun nimiseksi tiedostoksi 
- * annettuun hakemistoon.
- * HUOM: Hakemiston täytyy olla olemassa!
- * 
- * @param {string} dir - Hakemiston polku
- * @param {string} filename - Tiedoston nimi
- * @param {string} data - Tallennettava data
- */
+
+function validateFilePath(filePath) {
+    if (filePath.length===0) {
+        throw new Error('Directory name must not be empty!');
+    }
+    if (!fs.existsSync(filePath)) {
+        throw new Error('Directory does not exist. Please provide a valid directory path.');
+    } 
+    if (filePath==='/') {
+        throw new Error('Writing to the root is not allowed in this app!');
+    }
+}
+
+function validateData(data) {
+    if (data.length==0) {
+        throw new Error('Data must not be empty.');
+    }
+    if (data.length > 20) {
+        throw new Error('Data should be less than 20 characters long.');
+    }
+}
+
 function writeDataToFile(dir, filename, data) {
     try {
         // Yhdistetään tiedostopolku
@@ -19,28 +32,38 @@ function writeDataToFile(dir, filename, data) {
         // Kirjoitetaan data tiedostoon. 
         //antaa poikkeuksen, jos hakemistoa ei löydy
         fs.writeFileSync(filePath, data, 'utf8');
-        //ei tulosteta tässä käyttäjälle mitään!!
     } catch (err) {
         throw new Error(`Writing file failed because ${err.message}`)
     }
 }
 
-//ajetaan sovellus. node writefile.js
-//varmista, että hakemistossa (avaa terminaali) 
-//on oikean niminen hakemisto. Jos ei ole 
-//tee se komennolla mkdir data tai käytä
-//esim. windowsin File Manageria.
-
-const filePath='./fileet';
-const fileName='myfile.txt';
-const data="Tämän haluan kirjoittaa tiedostoon!";
-
-try {
-    writeDataToFile(filePath, fileName, data);
-    //Päätasolla, joka on vastuussa käyttäjän kanssa kommunikoinnista, tulostetaan 
-    //viesti käyttäjälle.
-    console.log(`✅ Data tallennettu tiedostoon: ${filePath}`);
-} catch (err) {
-    console.log("❌ Virhe tiedostoa kirjoitettaessa!");
-    console.error("Varsinainen virhe voidaan kirjoittaa esim. palvelimen logiin.", err.message);
+function getCurrentWorkingDirectory() {
+    const path = process.cwd();
+    return path;
 }
+
+/**
+ * ajetaan node writefile_refactored.js
+ */
+
+function main() {
+    try {
+        //Käyttöliittymätaso
+        const workingDir = getCurrentWorkingDirectory();
+        console.log(`You are now at: ${workingDir}`)
+        const filePath = readline.question(`Enter the file path: `);
+        validateFilePath(filePath)
+        let data = readline.question('Enter the data to write to the file (max 20 characters): ');
+        validateData(data)
+        //Tässä sovelluksessa nimeä ei kysytä käyttäjältä, voitaisi kyllä. ei tarvitse validoida.
+        const appFileName = 'myfile.txt';
+        //Kutsutaan hyötyfunktiota tai palvelufunktiota.
+        writeDataToFile(filePath, appFileName, data)
+        console.log("No exceptions got, good, writing file succeeded.")
+    } catch (err) {
+        console.error('Error:', err.message);
+    }
+}
+
+// Run the main function
+main();
