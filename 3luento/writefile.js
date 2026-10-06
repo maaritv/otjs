@@ -26,7 +26,8 @@ function validateData(data) {
 
 function writeDataToFile(dir, filename, data) {
     try {
-        // Yhdistetään tiedostopolku
+        // Yhdistetään tiedostopolku hakemistosta ja tiedostonimestä. 
+        // Tämä on tärkeää, jotta sovellus toimii eri käyttöjärjestelmissä.
         const filePath = path.join(dir, filename);
 
         // Kirjoitetaan data tiedostoon. 
@@ -51,14 +52,14 @@ function main() {
         //Käyttöliittymätaso
         const workingDir = getCurrentWorkingDirectory();
         console.log(`You are now at: ${workingDir}`)
-        const filePath = readline.question(`Enter the file path: `);
-        validateFilePath(filePath)
+        const folderPath = readline.question(`Enter the folder path (ensure that folder exists): `);
+        validateFilePath(folderPath)
         let data = readline.question('Enter the data to write to the file (max 20 characters): ');
         validateData(data)
         //Tässä sovelluksessa nimeä ei kysytä käyttäjältä, voitaisi kyllä. ei tarvitse validoida.
         const appFileName = 'myfile.txt';
         //Kutsutaan hyötyfunktiota tai palvelufunktiota.
-        writeDataToFile(filePath, appFileName, data)
+        writeDataToFile(folderPath, appFileName, data)
         console.log("No exceptions got, good, writing file succeeded.")
     } catch (err) {
         console.error('Error:', err.message);
