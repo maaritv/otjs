@@ -51,8 +51,7 @@ function getNewMonthlySpendLimit(oldLimit, change) {
 }
 
 
-/** Sovelluksen tila koostuu muuttujista accountBalance ja 
-     monthlySpendLimit (rivi 65)
+/** Sovelluksen tila koostuu muuttujista
      * accountBalance muuttuja on määritelty samalla tasolla, kuin
      * funktio, joka sitä käyttää (changeAccountBalance)
      * siksi funktio näkee sen.

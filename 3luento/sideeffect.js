@@ -51,12 +51,6 @@ function getNewMonthlySpendLimit(oldLimit, change) {
 }
 
 
-/** Sovelluksen tila koostuu muuttujista accountBalance ja 
-     monthlySpendLimit (rivi 65)
-     * accountBalance muuttuja on määritelty samalla tasolla, kuin
-     * funktio, joka sitä käyttää (changeAccountBalance)
-     * siksi funktio näkee sen.
-     */
 let accountBalance = 400
 
 try {
@@ -67,7 +61,7 @@ try {
   console.log(`Saldosi on ${accountBalance}`)
   console.log(`Käyttörajasi on ${monthlySpendLimit}`)
   
-  //Käyttöliittymä ja syöevalidointi
+  //Käyttöliittymä ja syötevalidointi
   let changeBalanceBy = readline.question(`Paljonko haluat muuttaa saldoa?`);
   validateNumber(changeBalanceBy)
   let changeMonthlySpendLimitBy = readline.question("Paljonko haluat muuttaa kuukausittaista käyttörajaa? ");
@@ -75,8 +69,11 @@ try {
 
   //kusutaan ns. liiketoimintalogiikkaa, palvelufunktiota
   changeAccountBalance(changeBalanceBy, monthlySpendLimit)
+  //Saldo muuttuu sivuvaikutuksen kautta
   console.log(`Tilin saldo on nyt ${accountBalance}`)
 
+  //Tila muuttuu, kun hedelmällinen funktio palauttaa arvon, joka sijoitetaan
+  //tilamuuttujaan
   monthlySpendLimit = getNewMonthlySpendLimit(monthlySpendLimit, changeMonthlySpendLimitBy)
   console.log(`New monthly spendlimit is now ${monthlySpendLimit}`)
 }
