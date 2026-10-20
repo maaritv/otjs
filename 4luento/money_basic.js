@@ -6,9 +6,9 @@ const Dinero = require('dinero.js')
  */
 
 const years = 2
-const months = 12
+const monthsPerYear = 12
 const weeklyMoneyEur = 10.40
-const numberOfPayments = years * months * 4
+const numberOfPayments = years * monthsPerYear * 4
 
 console.log(`Viikkorahan suuruus\t${weeklyMoneyEur} euroa / viikko`)
 console.log(`Viikkorahan kesto\t${numberOfPayments} viikkoa`)
