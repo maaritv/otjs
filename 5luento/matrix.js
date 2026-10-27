@@ -9,19 +9,26 @@ const matrix = [
    ["j", "k", "l"]
 ];
 
-function printMyMatrix(myMatrix) {
+function printMyMatrix(myMatrix, numberedItems=false) {
    //console.log("Printing my matrix "+myMatrix);
+   let i=0;
    for (let h = 0; h < myMatrix.length; h++) {
       let row = myMatrix[h];
       for (let w = 0; w < row.length; w++) {
          let column=row[w];
-         process.stdout.write(`${column} \t`);
+         if (numberedItems){
+            process.stdout.write(`(${i}) ${column} \t`);
+         }
+         else {
+            process.stdout.write(`${column} \t`);
+         }
+         i++;
       }
       console.log("\n");
    }
 }
 
-//printMyMatrix(matrix)
+//printMyMatrix(matrix, true)
 
 
 module.exports =  {printMyMatrix}

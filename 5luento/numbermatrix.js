@@ -1,10 +1,14 @@
 
+//Opettele laskemaan myös jokaisen sarakkeen numerot yhteen omaksi 
+//yksiulotteiseksi vektoriks.
+
 const matrixTools = require("./matrix.js")
 
 const numberMatrix = [
     [100, 105, 103],
     [120, 134, 99],
     [34, 52, 67],
+    [72, 33, 67],
     [72, 33, 67]
 ];
 
@@ -18,6 +22,7 @@ matrixTools.printMyMatrix(numberMatrix)
 //tuloksista uusi numerovektori, joka palautetaan.
 
 function createVectorWithRowSums(matrix) {
+    console.log("matrix length "+matrix.length)
     for (let h = 0; h < matrix.length; h++) {
         const row = matrix[h];
         let rowSum = 0;
