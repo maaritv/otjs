@@ -1,4 +1,6 @@
-
+/**
+ * osaat laskea yhteen ja vähentää euro-rahasummia.
+ */
 
 let omat_eur=14.80;
 let vieraat_eur = 6.25;
