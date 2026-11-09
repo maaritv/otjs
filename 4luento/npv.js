@@ -1,3 +1,10 @@
+
+/**
+ * Osaat muuntaa sigman for-silmukaksi.
+ * osaat toteuttaa esiehtotarkistuksen syntaksiavun kanssa.
+ */
+
+
 function calculateNPV(rate, cashFlows) {
 
     if (typeof rate !== "number" || rate < 0) {

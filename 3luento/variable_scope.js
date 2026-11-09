@@ -28,6 +28,7 @@ function getAnimals() {
     const animal = animals[i]
     lastAnimal = animal
   }
+  console.log(i)
   console.log("Listan viimeinen eläin: " + lastAnimal)
   console.log(names)
   //Palautetaan viittaus luotuun animals-listaan kutsuvalle funktiolle.
@@ -55,7 +56,7 @@ function getCopyOfAnimals() {
   animals.push("Worm")
   return animalsCopy;
 }
-
+//console.log(`Funktiosta poistettu ${i}`)
 const newAnimals = getAnimals()
 console.log(`Viittaus funktion luomaan eläinlistaan ${JSON.stringify(newAnimals)}`)
 

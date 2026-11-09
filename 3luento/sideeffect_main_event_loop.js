@@ -56,8 +56,6 @@ function getNewMonthlySpendLimit(oldLimit, change) {
      * funktio, joka sitä käyttää (changeAccountBalance)
      * siksi funktio näkee sen.
      */
-let accountBalance = 400
-let input = "";
 
 
 try {
@@ -65,6 +63,9 @@ try {
   //joka sitä käyttää. Siksi funktio EI näe tätä muuttujaa, vaan 
   //se on annettava parametrina 
   let monthlySpendLimit = 150
+  let accountBalance = 400
+  let input = "";
+
   //Molempien muuttujien arvoa muutetaan seuraavan tapahtumasilmukan 
   //sisällä.
   while (input !== 'q') {
