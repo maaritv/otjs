@@ -28,7 +28,8 @@ console.log("FILTER 2:");
 printBooks(oldBooks2)
 console.log("------------FIND-FIRST------------------")
 //Etsi ensimmäinen kirja, jonka kys. Secker ja Warburg on julkaissut
-const seckerBook = books.find(book => book.publisher === "Secker & Warburg");
+const title="Secker & Warburg"
+const seckerBook = books.find(book => book.publisher === title);
 console.log(seckerBook);
 console.log("------------EVERY------------------------")
 //paluuarvo on true, jos listan jokainen jäsen toteuttaa ehdon.

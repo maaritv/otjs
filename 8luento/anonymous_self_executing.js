@@ -31,9 +31,12 @@ setTimeout(function() {
     console.log("Moi! Kesti vähän :-)");
   }, 3000);
   
+
+
   // X SELF EXECUTING ANONYMOUS FUNCTION */
   (function() {
-    console.log("Ciao now!");
+    console.log()
+    console.log(`Ciao now!`);
   })();
   
   //X ELF EXECUTING ANONYMOUS ARROW FUNCTION

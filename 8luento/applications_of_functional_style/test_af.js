@@ -1,3 +1,10 @@
+/**
+ * OPIT TIETÄMÄÄN, MITEN VOIT TEHDÄ ITSE 
+ * UUSIA LAMBDA-FUNKTIOITA JAVASCRIPTILLÄ.
+ * 
+ */
+
+
 // Add a method to sort books by id
 Array.prototype.sortBooksById = function() {
     return this.sort((a, b) => a.id - b.id);

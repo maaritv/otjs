@@ -1,5 +1,6 @@
 
 //Opettele luomaan puhdas funktio.
+//Opettele tunnistamaan tapa, jolla JS objektista tehdään syväkopio.
 
 const books = [
     { id: 1, name: "The Great Gatsby", author: "F. Scott Fitzgerald", publisher: "Scribner", isbn: "9780743273565", publicationYear: 1925 },
